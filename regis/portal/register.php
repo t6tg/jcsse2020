@@ -13,17 +13,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./regis-paticipant.css">
+    <link rel="stylesheet" href="./regis_author.css">
     <link rel="icon" href="../../src/img/favicon.png">
 </head>
 
 <body>
     <div class="container">
         <div class="card-regis"><br>
-            <h3 align="center" style="margin-top:30px">PARTICIPANT REGISTRATION</h3><br>
+            <h3 align="center" style="margin-top:30px">AUTHOR REGISTRATION</h3><br>
             <center>
                 <form class="form-regis" name="myForm" enctype="multipart/form-data" action="insert.php" method="post">
                     <div lass="form-group">
+                        <!-- Title  -->
+                        <div class="form-group">
+                            <label><b>Title <span style="color:red">*</span></b></label>
+                            <select class="form-control" name="" id="">
+                                <option value="-1" disabled selected>-- Please select --</option>
+                                <option value="mr">Mr.</option>
+                                <option value="mrs">Mrs.</option>
+                                <option value="ms">Ms</option>
+                                <option value="professor">Professor</option>
+                                <option value="assistant">Assistant Professor</option>
+                                <option value="associate">Associate Professor</option>
+                            </select>
+                        </div>
                         <!-- firstname -->
                         <label><b>First Name <span style="color:red">*</span></b></label>
                         <input type="text" class="form-control" name="fname" id="" aria-describedby="helpId"
@@ -33,14 +46,25 @@
                         <input type="text" class="form-control" name="lname" id="" aria-describedby="helpId"
                             placeholder="Last name">
                         <!-- Badge --><br>
-                        <label><b>Name on Badge (it will appear on your name tag) <span
-                                    style="color:red">*</span></b></label>
+                        <label><b>Identity Card / Passport <span style="color:red">*</span></b></label>
                         <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
-                            placeholder="Name on Badge">
+                            placeholder="Identity card or passport"><br>
+                        <label><b>Name Of Organization <span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
+                            placeholder="Name Of Organization"><br>
+                        <label><b>Name Of Dept/Section <span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
+                            placeholder="Name Of Dept/Section">
                         <!-- Affiliation --><br>
-                        <label><b>Affiliation <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="affiliation" id="affiliation"
-                            aria-describedby="helpId" placeholder="Affiliation">
+                        <label><b>Username <span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="username" id="username"
+                            aria-describedby="helpId" placeholder="Username"><br>
+                        <label><b>Password <span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="password" id="password"
+                            aria-describedby="helpId" placeholder="Password"><br>
+                        <label><b>Confirm Password <span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="cfpassword" id="cfpassword"
+                            aria-describedby="helpId" placeholder="Confirm Password">
                     </div>
                     <!-- country --><br>
                     <div class="form-group">
@@ -52,13 +76,13 @@
                             <?php  } ?>
                         </select>
                     </div>
-                    <!-- email --><br>
+                    <!-- email -->
                     <label><b>Email <span style="color:red">*</span></b></label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId"
                         placeholder="Email">
                     <!-- phone --><br>
                     <label for=""><b>Phone: <span style="color:red">*</span></b></label>
-                    <input type="tel" name="phone" id="phone" class="form-control">
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone">
                     <!-- Banquet --><br>
                     <label><b>Banquet <span style="color:red">*</span></b></label>
                     <div class="form-group">
@@ -66,6 +90,23 @@
                             <option value="-1" disabled selected>-- Please select --</option>
                             <option value="1">Attend</option>
                             <option value="0">Not Attend</option>
+                        </select>
+                    </div>
+                    <label><b>Extra Banquet Ticket <span style="color:red">*</span></b></label>
+                    <div class="form-group">
+                        <select class="form-control" name="banquet" id="banquet">
+                            <option value="0" selected>0</option>
+                            <?php for($i = 1 ; $i <= 10 ;$i++){ ?>
+                            <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <label><b>Welcome Reception <span style="color:red">*</span></b></label>
+                    <div class="form-group">
+                        <select class="form-control" name="banquet" id="banquet">
+                            <option value="-1" disabled selected>-- Please select --</option>
+                            <option value="1">Join</option>
+                            <option value="0">Not Join</option>
                         </select>
                     </div>
                     <!-- special menu -->
@@ -120,9 +161,9 @@
                         </select>
                     </div>
                     <!-- submit -->
-                    <button  onclick="validateForm()" class="btn"><b>NEXT</b></button>
+                    <button onclick="validateForm()" class="btn"><b>REGISTRATION</b></button>
                     <br><br><br>
-                    <center><a href=""><b>Author Registration</b></a><br><br><Br></center>
+                    <center><a href="../participant/"><b>Paritcipant Registration</b></a><br><br><Br></center>
                 </form>
             </center>
         </div>
@@ -131,10 +172,13 @@
     function validateForm() {
         var fname = document.forms["myForm"]["fname"].value;
         var lname = document.forms["myForm"]["lname"].value;
-        var badge = document.forms["myForm"]["badge"].value;
+        // var badge = document.forms["myForm"]["badge"].value;
         var email = document.forms["myForm"]["email"].value;
         var affiliation = document.forms["myForm"]["affiliation"].value;
         var country = document.forms["myForm"]["country"].value;
+        var username = document.forms["myForm"]["username"].value;
+        var password = document.forms["myForm"]["password"].value;
+        var cfpassword = document.forms["myForm"]["cfpassword"].value;
         var banquet = document.forms["myForm"]["banquet"].value;
         var special = document.forms["myForm"]["special"].value;
         var menus = document.forms["myForm"]["menu"].value;
@@ -145,53 +189,74 @@
         if (fname == "") {
             alert("Please Input First Name");
             return false;
-        }  if (lname == "") {
+        }
+        if (lname == "") {
             alert("Please Input Last Name");
             return false;
-        }  if (badge == "") {
-            alert("Please Input Name on Badge");
+        }
+        if(username == ""){
+            alert("Please Input Username");
             return false;
-        }  if (affiliation == "") {
-            alert("Please Input Affiliation");
+        }if(password == ""){
+            alert("Please Input Password");
             return false;
-        } if (country == "") {
+        }
+        if(cfpassword == ""){
+            alert("Please Input Confirm-Password");
+            return false;
+        }if(password != cfpassword){
+            alert("Please set your password for the same.");
+            return false;
+        }
+        if (country == "") {
             alert("Please Input Country");
             return false;
-        }  if (email == "") {
+        }
+        if (email == "") {
             alert("Please Input Email");
             return false;
-        }  if (phone == "") {
+        }
+        if (phone == "") {
             alert("Please input phone number");
             return false;
-        }  if (banquet == '-1') {
+        }
+        if (banquet == '-1') {
             alert("Please choose Banquet");
             return false;
-        }  if (special == '-1') {
+        }
+        if (special == '-1') {
             alert("Please choose Special Menu");
             return false;
-        }  if (special == 'other') {
+        }
+        if (special == 'other') {
             if (menus == '') {
                 alert("Please input Special Menu");
                 return false;
             }
-        }  if (ieees == '-1') {
+        }
+        if (ieees == '-1') {
             alert("Please choose Participant Status");
             return false;
-        } if (ieees == "") {
+        }
+        if (ieees == "") {
             alert("Please choose Participant Status");
             return false;
-        }  if (ieees == '1') {
+        }
+        if (ieees == '1') {
             if (ieeefile == "") {
                 alert("Please choose IEEE member File");
                 return false;
             }
-        } if (payment == '-1') {
+        }
+        if (payment == '-1') {
             alert("Please choose Payment Method");
             return false;
-        }if (payment == "") {
+        }
+        if (payment == "") {
             alert("Please choose Payment Method");
             return false;
-        } if(confirm("Confirm your information")) {
+        }
+        if (confirm("Confirm your information")) {
             document.getElementById("myForm").submit();
         }
     }

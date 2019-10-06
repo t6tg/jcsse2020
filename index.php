@@ -38,7 +38,7 @@
                     <a class="nav-link" href="./main/paper-submission.php">Paper Submission</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./main//registration-policy.php">Registration Policy</a>
+                    <a class="nav-link" href="./main/registration-policy.php">Registration Policy</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./main/history.php">History</a>

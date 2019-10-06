@@ -64,13 +64,16 @@
                     </div>
                     <div class="col-md-6"><br>
                         <div class="status-fail status" id="status">
-                            <span>NOT PAID</span>
+                            <span>Pay : NOT PAID</span>
                         </div>
                     </div>
                 </div> <?php }else{ ?>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="status-success status" id="status">SUCCESSFUL</div><br>
+                    <div<br class="col-md-12">
+                        <div class="status-success status" id="status">Pay : SUCCESSFUL</div>
+                        <?php if($row['participant_st'] == '1' && $row['ieee_ch'] == '1'){ echo "<br><div class='status-success'>IEEE : SUCCESSFUL</div>";}
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '0'){ echo "<br><div class='status-success' style='background-color:orange'>IEEE : Awaiting review </div>"; }
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '-1'){ echo "<br><div class='status-fail'>IEEE : FAIL </div>"; }?><br>
                         <?php if($row['receipt_name'] == ""){ ?>
                         <form action="" style="width:70%" method="post">
                             <div class="form-group">
@@ -101,46 +104,62 @@
                                         id="" rows="3" disabled></textarea>
                                 </div>
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
-                                <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                                <button type="submit-card" class="btn btn-primary" disabled>Submit</button>
                             </div>
                         </form>
                         <?php } ?>
-                    </div>
+                        </";>
                 </div>
                 <?php } ?>
-                        <?php }else { 
+                <?php }else { 
                                 if($row['receipt_name'] != ""){ ?>
-                                <?php if($row['pay_st'] == '-1'){ ?>
-                                         <div class="status-success status" style="background-color:orange" id="status">Awaiting review</div><br>
-                                <?php }else if($row['pay_st'] == '1'){ ?>
-                                    <div class="status-success status"  id="status">SUCCESSFUL</div><br>
-                                <?php }else if($row['pay_st'] == '0'){ ?>
-                                    <div class="status-success"  style="background-color:red" id="status">FAIL</div><br>
-                                <?php } ?>
-                                
-                                        <form action="transfer.php" style="width:70%;text-align:left"  method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                          <label for=""><b>Receipt Name<span style="color:red">*</span></b></label>
-                                          <input type="text"  class="form-control" id="" aria-describedby="helpId" placeholder="<?php echo $row['receipt_name'] ?>" disabled/><br>
-                                          <label for=""><b>Receipt Adress<span style="color:red">*</span></b></label>
-                                        <textarea class="form-control" placeholder="<?php echo $row['receipt_address'];?>" id="" rows="3" disabled></textarea><br>
-                                        <input type="submit" class="btn btn-primary" disabled>
-                                    </div>
-                               </form>
-                               <?php  }else { ?>
-                                <form action="transfer.php" style="width:70%;text-align:left"  method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                        <label for=""><b>File upload <span style="color:red">*</span></b></label><br>
-                                          <input type="file" class="form-control-file" name="slip_file" id="" placeholder="" aria-describedby="fileHelpId"/><br>
-                                          <label for=""><b>Receipt Name<span style="color:red">*</span></b></label>
-                                          <input type="text"  class="form-control" name="receipt_name" id="" aria-describedby="helpId" placeholder=""/><br>
-                                          <label for=""><b>Receipt Adress<span style="color:red">*</span></b></label>
-                                        <textarea class="form-control" name="receipt_address" id="" rows="3"></textarea><br>
-                                        <input type="hidden" name="myid" value="<?php echo $id ;?>">
-                                        <input type="submit" name="submit" class="btn btn-primary">
-                                    </div>
-                               </form>
-                        <?php } } ?>
+                <?php if($row['pay_st'] == '-1'){ ?>
+                <div class="status-success status" style="background-color:orange" id="status">Pay : Awaiting review
+                </div>
+                <?php if($row['participant_st'] == '1' && $row['ieee_ch'] == '1'){ echo "<br><div class='status-success'>IEEE : SUCCESSFUL</div>";}
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '0'){ echo "<br><div class='status-success' style='background-color:orange'>IEEE : Awaiting review </div>"; }
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '-1'){ echo "<br><div class='status-fail'>IEEE : FAIL </div>"; }?><br>
+                <?php }else if($row['pay_st'] == '1'){ ?>
+                <div class="status-success status" id="status">Pay : SUCCESSFUL</div>
+                <?php if($row['participant_st'] == '1' && $row['ieee_ch'] == '1'){ echo "<br><div class='status-success'>IEEE : SUCCESSFUL</div>";}
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '0'){ echo "<br><div class='status-success' style='background-color:orange'>IEEE : Awaiting review </div>"; }
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '-1'){ echo "<br><div class='status-fail'>IEEE : FAIL </div>"; }?><br>
+                <?php }else if($row['pay_st'] == '0'){ ?>
+                <div class="status-success" style="background-color:red" id="status"> Pay : FAIL</div>
+                <?php if($row['participant_st'] == '1' && $row['ieee_ch'] == '1'){ echo "<br><div class='status-success'>IEEE : SUCCESSFUL</div>";}
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '0'){ echo "<br><div class='status-success' style='background-color:orange'>IEEE : Awaiting review </div>"; }
+                        else if($row['participant_st'] == '1' && $row['ieee_ch'] == '-1'){ echo "<br><div class='status-fail'>IEEE : FAIL </div>"; }?><br>
+                <?php } ?>
+
+                <form action="transfer.php" style="width:70%;text-align:left" method="post"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for=""><b>Receipt Name<span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" id="" aria-describedby="helpId"
+                            placeholder="<?php echo $row['receipt_name'] ?>" disabled /><br>
+                        <label for=""><b>Receipt Adress<span style="color:red">*</span></b></label>
+                        <textarea class="form-control" placeholder="<?php echo $row['receipt_address'];?>" id=""
+                            rows="3" disabled></textarea><br>
+                        <button type="submit" class="btn btn-primary" disabled>
+                    </div>
+                </form>
+                <?php  }else { ?>
+                <form action="transfer.php" style="width:70%;text-align:left" method="post"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for=""><b>File upload <span style="color:red">*</span></b></label><br>
+                        <input type="file" class="form-control-file" name="slip_file" id="" placeholder=""
+                            aria-describedby="fileHelpId" /><br>
+                        <label for=""><b>Receipt Name<span style="color:red">*</span></b></label>
+                        <input type="text" class="form-control" name="receipt_name" id="" aria-describedby="helpId"
+                            placeholder="" /><br>
+                        <label for=""><b>Receipt Adress<span style="color:red">*</span></b></label>
+                        <textarea class="form-control" name="receipt_address" id="" rows="3"></textarea><br>
+                        <input type="hidden" name="myid" value="<?php echo $id ;?>">
+                        <input type="submit" name="submit" class="btn btn">
+                    </div>
+                </form>
+                <?php } } ?>
                 <br>
             </div>
         </center>

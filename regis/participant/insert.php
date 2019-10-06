@@ -21,6 +21,7 @@
     $price_early = [4500,5500,4500,3000];
     $price_general = [5500,6500,5500,3500];
     $time_stamp = Date('d-m-Y h:i:s');
+    $ieee_ch = 1;
     if($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $country != "" && $email != "" && $phone != ""  && $banquet != "" && $special != "" && $ieee != "" && $payment != ""){
         if($ieee == '1'){
           move_uploaded_file($_FILES["ieeefile"]["tmp_name"],"fad5725438f4a054f71d6b9aa9a13fa3/".$unique.".jpg");
@@ -35,6 +36,7 @@
           if($special == 'other'){
             $special = $menu;
           }
+          $ieee_ch = 0;
           }
           else if($ieee == '0'){
             if(round(microtime(true) * 1000)  < $date){
@@ -76,14 +78,14 @@
                 }
           //pay
           if($payment == '1'){
-            $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','1')";
+            $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','$ieee_ch')";
             if(mysqli_query($conn,$sql)){
                header("Refresh:0,url=payment.php?id=$unique");
             }else{
               header("Refresh:0,url=index.php");
             }
         }else{
-          $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','0')";
+          $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','$ieee_ch')";
             if(mysqli_query($conn,$sql)){
                header("Refresh:0,url=payment.php?id=$unique");
             }else{
