@@ -35,15 +35,47 @@
                 </div><br>
                 <div>
                     <input type="text" style="padding:10px;width:60%;background-color: #eee;border:none;color:#333;"
-                        value="<?php echo "http://jcsse2020.cs.kmutnb.ac.th/regis/participant/payment.php?id=",$id ;?>"
+                        value="<?php echo "http://jcsse2020.cs.kmutnb.ac.th/jcsse2020/regis/participant/payment.php?id=",$id ;?>"
                         id="myInput" readonly />
                     <button style="padding:10px;width:10%;color:#fff;background-color:#777" onclick="myFunction()"><i
                             class="fa fa-clipboard"></i></button></div><br>
-                <span><input type="text"
-                        style="padding:10px;width:40%;background-color: orange;border:none;color:#fff;border-radius: 10px;text-align:center"
-                        value="Price : <?php echo $row['price'];?> THB." readonly /></span><br><br>
+                <table style="width: 70%" class="table table-striped table-inverse">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>No.</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td><?php if($row['participant_st'] == '1'){echo "IEEE Member";}
+                            else if($row['participant_st'] == '0'){ echo "Non-IEEE Member/Accompanying person/Student";}
+                            else if($row['participant_st'] == '2'){ echo "JCSSE Committee/ JCSSE Reviewer";}
+                            else if($row['participant_st'] == '3'){ echo "Student Observer";}?>
+                            </td>
+                            <td><?php if($row['participant_st'] == '1'){echo "4500";}
+                            else if($row['participant_st'] == '0'){ echo "5500";}
+                            else if($row['participant_st'] == '2'){ echo "4500";}
+                            else if($row['participant_st'] == '3'){ echo "3000";}?></td>
+                        </tr>
+                        <?php if($row['workshop'] != "0"){ ?>
+                            <tr>
+                            <td scope="row">2</td>
+                            <td>Workshop</td>
+                            <td>2000</td>
+                            </tr>
+                        <?php }?>
+                        <tr>
+                            <td scope="row"></td>
+                            <td><b>Total : </b></td>
+                            <td><b><?php echo $row['price'];?></b></td>
+                        </tr>
+                    </tbody>
+                </table><br>
                 <?php if($row['pay_method'] == "1"){ ?>
-                <?php if($row['pay_st'] == ""){?>
+                <?php if($row['pay_st'] == "" || $row['pay_st'] == "0"){?>
                 <!-- //row1 -->
                 <div class="row">
                     <div class="col-md-6">
@@ -67,7 +99,7 @@
                             <span>Pay : NOT PAID</span>
                         </div>
                     </div>
-                </div> <?php }else{ ?>
+                </div> <?php }else if($row['pay_st'] == '1'){ ?>
                 <div class="row">
                     <div<br class="col-md-12">
                         <div class="status-success status" id="status">Pay : SUCCESSFUL</div>
@@ -222,6 +254,9 @@
     ));
     if($charge['status'] == 'successful'){
         $sql_paid = "UPDATE general_ticket SET pay_st='1' WHERE unique_code='$id'";
+        mysqli_query($conn,$sql_paid);
+    }else{
+        $sql_paid = "UPDATE general_ticket SET pay_st='0' WHERE unique_code='$id'";
         mysqli_query($conn,$sql_paid);
     }
     mysqli_close($conn);

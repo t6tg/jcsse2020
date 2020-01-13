@@ -94,13 +94,27 @@ html , body {
     background-color: #eee;
     border-radius: 5px;
 }
+.menu-card{
+    /* background-color: #eee; */
+    /* height: 1000px; */
+
+}
+.jcsse-logo{
+    width: 60%;
+}
 /* responsive */
 @media only screen and (max-width: 600px) {
     .container{
         width: 100%;
     }
+    .jcsse-logo{
+        width: 100%;
+    }
     #banner{
         height: 300px;
+    }
+    .menu-card{
+        height: 400px;
     }
     .footer{
         height: 400px;

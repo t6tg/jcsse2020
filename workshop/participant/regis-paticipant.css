@@ -1,0 +1,73 @@
+html,body{
+    background-image: url(../../src/img/banner2.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}.container{
+    margin-top: 100px;
+}
+.card-regis{
+    background-color: #fff;
+    border-radius: 30px;
+    width: 100%;
+    height: auto;
+}.form-regis{
+    text-align: left;
+    width: 90%;
+    margin-bottom: 100px;
+}.form-control{
+    height: 50px;
+}.price{
+    width: 30%;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: #3c94db;
+    padding: 5px;
+}.btn{
+    background-image: linear-gradient(-90deg,rgb(94, 215, 236),rgb(180, 72, 207));
+    border: none;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+}.link-author{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.omise-checkout-button{
+    background-color:#3c94db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-top:20px;
+}.status-fail{
+    width:70%;
+    text-align: left;
+    color:white;
+    height: 50px;
+    background-color:red;
+}.status-success{
+
+    width:70%;
+    text-align: left;
+    color:white;
+    height: 50px;
+    background-color:green;
+}
+@media only screen and (max-width: 600px) {
+    .price{
+        width: 100%;
+    }
+    .form-regis{
+        width: 80%;
+        margin-bottom: 100px;
+    }
+    .card-regis{
+        width: 100%;
+    }.callout{
+        height: auto;
+        margin: 0px;
+    }
+}

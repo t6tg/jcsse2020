@@ -54,6 +54,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./contact.php">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./workshop.php">Workshop</a>
+                </li>
             </ul>
         </div>
         <!--  HISTORY COMMITTEE KEYNOTE SPEAKERS INFORMATION CONTAC -->
@@ -69,8 +72,8 @@
             <h3><b>Friends of the Conference</b></h3>
             <div class="row">
             <div class="col-md-12 sponsored">
-                <img src="../src/img/logo-spondor.png" class="timeline" alt="">
-                <img src="../src/img/logo.png" class="logo" alt="">
+                <img src="../src/img/logo-spondor.png" width="100%" class="timeline" alt="">
+                <img src="../src/img/logo.png" width="100%"  class="logo" alt="">
             </div>
         </div>
     </div><br><br>

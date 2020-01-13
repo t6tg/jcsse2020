@@ -1,7 +1,15 @@
 <?php 
   require_once('../../Database/jcsse2020-database.php');
-  $sql_country = "select country from country";
+  $sql_country = "select * from country";
   $result_country = $conn->query($sql_country);
+    
+  $sql_country2 = "select * from country";
+  $result_country2 = $conn->query($sql_country);
+  $date = 1585674000000;
+  if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1579021200000)){
+    echo '<script>alert("timeout")</script>';
+    header('Refresh:0,url=index.php');
+  }else{
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,12 +30,12 @@
         <div class="card-regis"><br>
             <h3 align="center" style="margin-top:30px">AUTHOR REGISTRATION</h3><br>
             <center>
-                <form class="form-regis" name="myForm" enctype="multipart/form-data" action="insert.php" method="post">
+            <form class="form-regis" name="myForm" id="signup-form" enctype="multipart/form-data" action="insert.php" method="post">
                     <div lass="form-group">
                         <!-- Title  -->
                         <div class="form-group">
                             <label><b>Title <span style="color:red">*</span></b></label>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="mytitle" id="">
                                 <option value="-1" disabled selected>-- Please select --</option>
                                 <option value="mr">Mr.</option>
                                 <option value="mrs">Mrs.</option>
@@ -47,23 +55,23 @@
                             placeholder="Last name">
                         <!-- Badge --><br>
                         <label><b>Identity Card / Passport <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
+                        <input type="text" class="form-control" name="identify" id="" aria-describedby="helpId"
                             placeholder="Identity card or passport"><br>
                         <label><b>Name Of Organization <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
+                        <input type="text" class="form-control" name="organization" id="" aria-describedby="helpId"
                             placeholder="Name Of Organization"><br>
                         <label><b>Name Of Dept/Section <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="badge" id="" aria-describedby="helpId"
+                        <input type="text" class="form-control" name="section" id="" aria-describedby="helpId"
                             placeholder="Name Of Dept/Section">
                         <!-- Affiliation --><br>
                         <label><b>Username <span style="color:red">*</span></b></label>
                         <input type="text" class="form-control" name="username" id="username"
                             aria-describedby="helpId" placeholder="Username"><br>
                         <label><b>Password <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="password" id="password"
+                        <input type="password" class="form-control" name="password" id="password"
                             aria-describedby="helpId" placeholder="Password"><br>
                         <label><b>Confirm Password <span style="color:red">*</span></b></label>
-                        <input type="text" class="form-control" name="cfpassword" id="cfpassword"
+                        <input type="password" class="form-control" name="cfpassword" id="cfpassword"
                             aria-describedby="helpId" placeholder="Confirm Password">
                     </div>
                     <!-- country --><br>
@@ -73,6 +81,16 @@
                             <?php while($row_country = $result_country->fetch_assoc()){ ?>
                             <option value="<?php echo $row_country['country']; ?>">
                                 <?php echo $row_country['country']; ?></option>
+                            <?php  } ?>
+                        </select>
+                    </div>
+                    <!-- NAtionnality  -->
+                    <div class="form-group">
+                        <label><b>Nationality <span style="color:red">*</span></b></label>
+                        <select class="form-control" name="nation" id="">
+                            <?php while($row_country2 = $result_country2->fetch_assoc()){ ?>
+                            <option value="<?php echo $row_country2["nationality"]; ?>">
+                                <?php echo $row_country2['nationality']; ?></option>
                             <?php  } ?>
                         </select>
                     </div>
@@ -92,9 +110,9 @@
                             <option value="0">Not Attend</option>
                         </select>
                     </div>
-                    <label><b>Extra Banquet Ticket <span style="color:red">*</span></b></label>
+                    <label><b>Extra Banquet Ticket <span style="color:red"></span></b></label>
                     <div class="form-group">
-                        <select class="form-control" name="banquet" id="banquet">
+                        <select class="form-control" name="exbanquet" id="exbanquet">
                             <option value="0" selected>0</option>
                             <?php for($i = 1 ; $i <= 10 ;$i++){ ?>
                             <option value="<?php echo $i ?>"><?php echo $i ?></option>
@@ -103,7 +121,7 @@
                     </div>
                     <label><b>Welcome Reception <span style="color:red">*</span></b></label>
                     <div class="form-group">
-                        <select class="form-control" name="banquet" id="banquet">
+                        <select class="form-control" name="welcome" id="welcome">
                             <option value="-1" disabled selected>-- Please select --</option>
                             <option value="1">Join</option>
                             <option value="0">Not Join</option>
@@ -124,20 +142,27 @@
                         <label><b>Special Menu <span style="color:red">*</span></b></label>
                         <input type="text" class="form-control" name="menu" id="menu" /><br>
                     </div>
+                    <!-- workshop -->
+                    <label><b>Workshop <span style="color:red">*</span></b></label>
+                    <div class="form-group">
+                        <select class="form-control" name="workshop" id="workshop">
+                            <option value="-1" disabled selected>-- Please select --</option>
+                            <option value="1">Join</option>
+                            <option value="0">Not Join</option>
+                        </select>
+                    </div>
                     <!-- Note (optional) -->
                     <div class="form-group">
                         <label><b>Note (optional)</b></label>
                         <textarea class="form-control" name="note" id="" rows="3"></textarea>
                     </div>
                     <!-- Participant Status -->
-                    <label><b>Participant Status <span style="color:red">*</span></b></label>
+                    <label><b>Member Status <span style="color:red">*</span></b></label>
                     <div class="form-group">
                         <select class="form-control" onchange="calculate()" name="ieee" id="ieee">
                             <option value="-1" disabled selected>-- Please select --</option>
                             <option value="1">IEEE Member</option>
-                            <option value="0">Non-IEEE Member/Accompanying person/Student</option>
-                            <option value="2">JCSSE Committee/ JCSSE Reviewer</option>
-                            <option value="3">Student Observer</option>
+                            <option value="0">Non-IEEE Member</option>
                         </select>
                         <div class="form-group" id="ieee-div"
                             style="border:1px solid;border-radius:10px;padding:20px;display:none;margin-top:10px">
@@ -150,18 +175,17 @@
                     <div class="price">
                         <p><label id="price">0.00</label>THB</p>
                         <input type="hidden" name="totalfee" id="totalfee" value="0">
-                    </div> <b style="color:red">* foreigner +2000 THB</b><br>
+                    </div> 
                     <!-- Payment Method * --><br>
                     <label><b>Payment Method <span style="color:red">*</span></b></label>
                     <div class="form-group">
                         <select class="form-control" name="payment" id="payment">
                             <option value="-1" disabled selected>-- Please select --</option>
-                            <option value="1">Credit Card</option>
                             <option value="2">Bank Transfer</option>
                         </select>
                     </div>
                     <!-- submit -->
-                    <button onclick="validateForm()" class="btn"><b>REGISTRATION</b></button>
+                    <button onclick="validateForm()" type="button" class="btn"><b>REGISTRATION</b></button>
                     <br><br><br>
                     <center><a href="../participant/"><b>Paritcipant Registration</b></a><br><br><Br></center>
                 </form>
@@ -169,23 +193,32 @@
         </div>
     </div>
     <script>
-    function validateForm() {
-        var fname = document.forms["myForm"]["fname"].value;
-        var lname = document.forms["myForm"]["lname"].value;
-        // var badge = document.forms["myForm"]["badge"].value;
-        var email = document.forms["myForm"]["email"].value;
-        var affiliation = document.forms["myForm"]["affiliation"].value;
-        var country = document.forms["myForm"]["country"].value;
+     function validateForm() {
+         var identify =  document.forms["myForm"]["identify"].value;
+         var organization =  document.forms["myForm"]["organization"].value;
+         var section =  document.forms["myForm"]["section"].value;
+        var mytitle = document.forms["myForm"]["mytitle"].value;
+        var nation = document.forms["myForm"]["nation"].value;
         var username = document.forms["myForm"]["username"].value;
         var password = document.forms["myForm"]["password"].value;
+        var welcome = document.forms["myForm"]["welcome"].value;
         var cfpassword = document.forms["myForm"]["cfpassword"].value;
+        var fname = document.forms["myForm"]["fname"].value;
+        var lname = document.forms["myForm"]["lname"].value;
+        var email = document.forms["myForm"]["email"].value;
+        var country = document.forms["myForm"]["country"].value;
         var banquet = document.forms["myForm"]["banquet"].value;
         var special = document.forms["myForm"]["special"].value;
         var menus = document.forms["myForm"]["menu"].value;
         var ieees = document.forms["myForm"]["ieee"].value;
+        var workshop = document.forms["myForm"]["workshop"].value;
         var ieeefile = document.forms["myForm"]["ieee-file"].value;
         var payment = document.forms["myForm"]["payment"].value;
         var phone = document.forms["myForm"]["phone"].value;
+        if (mytitle == "-1") {
+            alert("Please Choose Title");
+            return false;
+        }
         if (fname == "") {
             alert("Please Input First Name");
             return false;
@@ -194,23 +227,43 @@
             alert("Please Input Last Name");
             return false;
         }
-        if(username == ""){
-            alert("Please Input Username");
-            return false;
-        }if(password == ""){
-            alert("Please Input Password");
+        if(identify == ""){
+            alert("Please Input identify card / Passport");
             return false;
         }
-        if(cfpassword == ""){
-            alert("Please Input Confirm-Password");
+        if(organization == ""){
+            alert("Please Input Name of organization");
             return false;
-        }if(password != cfpassword){
-            alert("Please set your password for the same.");
+        }
+        if(section  == ""){
+            alert("Please Input Name of Dept/section");
             return false;
         }
         if (country == "") {
             alert("Please Input Country");
             return false;
+        }
+        if (nation == "") {
+            alert("Please Input Nationality");
+            return false;
+        }
+        if(username == ""){
+            alert("Please Input Username");
+            return false;
+        }
+        if(password == ""){
+            alert("Please Input Password");
+            return false;
+        }
+        if(cfpassword == ""  ){
+            alert("Please Input Conform-Password");
+            return false;
+        }
+        if(password != "" && cfpassword != ""){
+            if(password != cfpassword){
+                alert("Passwords do not match");
+            return false;
+            }
         }
         if (email == "") {
             alert("Please Input Email");
@@ -224,6 +277,10 @@
             alert("Please choose Banquet");
             return false;
         }
+        if (welcome == "-1") {
+            alert("Please choose Welcome Reception");
+            return false;
+        }
         if (special == '-1') {
             alert("Please choose Special Menu");
             return false;
@@ -234,12 +291,16 @@
                 return false;
             }
         }
+        if (workshop == '-1') {
+            alert("Please choose Workshop");
+            return false;
+        }
         if (ieees == '-1') {
-            alert("Please choose Participant Status");
+            alert("Please choose Member Status");
             return false;
         }
         if (ieees == "") {
-            alert("Please choose Participant Status");
+            alert("Please choose Member Status");
             return false;
         }
         if (ieees == '1') {
@@ -257,7 +318,7 @@
             return false;
         }
         if (confirm("Confirm your information")) {
-            document.getElementById("myForm").submit();
+            document.getElementById("signup-form").submit();
         }
     }
 
@@ -322,5 +383,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
-
+  <?php } ?>
 </html>

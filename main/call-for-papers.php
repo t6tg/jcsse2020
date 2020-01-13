@@ -54,6 +54,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./contact.php">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./workshop.php">Workshop</a>
+                </li>
             </ul>
         </div>
         <!--  HISTORY COMMITTEE KEYNOTE SPEAKERS INFORMATION CONTAC -->
@@ -69,13 +72,78 @@
         <div class="row">
             <div class="col-md-12 callpaper">
                 <h2><b>Call for Paper</b></h2><br>
-                <span>Papers should not exceed six (6) pages including results, figures, and references. All manuscripts
-                    must be written in English and prepared in the standard IEEE Conference Proceedings format in PDF.
-                    Manuscript templates are made available on the website. Only electronic submissions in PDF format
-                    will be accepted via EDAS submission system. All submissions will be subjected to a double-blind
-                    review procedure. At least one of the authors must register to present the paper at the conference
-                    upon acceptance. </span><br><br>
-                <!-- <img src="../src/img/cfp.jpg" width="100%" alt="cfp"> -->
+                <span>The 17th International Joint Conference on Computer Science and Software Engineering (JCSSE2020)
+                    will be held on May 6 - 8, 2020 at Chiangmai, Thailand, organized by Department of Computer and
+                    Information Science, Faculty of Applied Science, King Mongkut’s University of Technology North
+                    Bangkok, Bangkok, Thailand. The theme of JCSSE2020 is “Ideation to Reality”. The conference will
+                    bring together researchers, scientists and engineers from around the world to present their novel
+                    accomplishments, innovations and future directions in computer science and software engineering
+                    along with their applications. Topics include, but are not limited to, the following:</span><br><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <li>Database and Information Retrieval</li>
+                        <li>Software Engineering and Software Development</li>
+                        <li>Image Processing and Computer Vision</li>
+                        <li>Medical and Bio Informatics</li>
+                        <li>Human Computer Interaction and VR</li>
+                        <li>Data Science</li>
+                        <li>Cloud Computing</li>
+                        <li>Cluster and Grid Computing</li>
+                        <li>Ontology and Semantic Web</li>
+                    </div>
+                    <div class="col-md-6">
+                        <li>Internet of Things and Embedded Systems</li>
+                        <li>IT Architecture and Security</li>
+                        <li>Parallel and Mobile Computing</li>
+                        <li>IT Project and IT Service Management</li>
+                        <li>Computer Networks and Communications</li>
+                        <li>Machine Learning and Intelligent Systems</li>
+                        <li>Computer Educational Technology</li>
+                        <li>Information Technology</li>
+                        <li>Knowledge and Data Management </li>
+                        <li>Music and Multimedia Engineering</li>
+                    </div><br><br>
+                    <span style="margin-top: 30px">Papers should not exceed six (6) pages including results, figures, and references. All
+                        manuscripts must be written in English and prepared in the standard IEEE Conference Proceedings
+                        format in PDF. Manuscript templates are made available on the website. Only electronic
+                        submissions in PDF format will be accepted via EDAS submission system. All submissions will be
+                        subjected to a double-blind review procedure. At least one of the authors must register to
+                        present the paper at the conference upon acceptance.</span>
+                        <div class="col-md-12 important">
+                <h3><b>IMPORTANT DATES</b></h3>
+                <table  align="center" style="width: 70%" class="table table-striped table-inverse">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Topic</th>
+                            <th>DATE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td scope="row">SUBMISSION DEADLINE</td>
+                            <td>January 14, 2020</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">NOTIFICATION OF ACCEPTANCE</td>
+                            <td>February 14, 2020</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">EARLY BIRD REGISTRATION</td>
+                            <td>February 15, 2020</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">CAMERA-READY SUBMISSION DEADLINE</td>
+                            <td> March 31, 2020</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">CONFERENCE DATES</td>
+                            <td>May 6 - 8, 2020</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="../src/img/poster.jpg" style="width: 60%" />
+            </div>
+                </div>
             </div>
         </div>
     </div><br>
@@ -85,13 +153,13 @@
                 <div class="col-md-6 foot-organiz">
                     <h5><b>Organized by</b></h5>
                     <li>Department of Computer and Information Science, Faculty of Applied Science</li>
-                    <li>King Mongkut’s University of Technology  North Bangkok, Bangkok, Thailand</li>
+                    <li>King Mongkut’s University of Technology North Bangkok, Bangkok, Thailand</li>
                 </div>
                 <div class="col-md-6 foot-contact">
                     <h5><b>Contact</b></h5>
                     <span>Contact
-                    Tel. 02-555-2000 to 4601, 4602 <br>
-                    Email : jcsse2020@sci.kmutnb.ac.th</span>
+                        Tel. 02-555-2000 to 4601, 4602 <br>
+                        Email : jcsse2020@sci.kmutnb.ac.th</span>
                 </div>
             </div>
         </div>

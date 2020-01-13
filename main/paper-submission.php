@@ -54,6 +54,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./contact.php">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./workshop.php">Workshop</a>
+                </li>
             </ul>
         </div>
         <!--  HISTORY COMMITTEE KEYNOTE SPEAKERS INFORMATION CONTAC -->
