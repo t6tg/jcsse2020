@@ -111,25 +111,29 @@
                         present the paper at the conference upon acceptance.</span>
                         <div class="col-md-12 important">
                 <h3><b>IMPORTANT DATES</b></h3>
-                <table  align="center" style="width: 70%" class="table table-striped table-inverse">
+                <table align="center" style="width: 70%" class="table table-striped table-inverse">
                     <thead class="thead-inverse">
                         <tr>
                             <th>Topic</th>
                             <th>DATE</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td scope="row">SUBMISSION DEADLINE</td>
-                            <td>January 14, 2020</td>
+                            <td scope="row" style="color:red">Extended DEADLINE</td>
+                            <td><S>January 14, 2020</S><br><span style="color:red">Febuary,3 2020</span></td>
                         </tr>
                         <tr>
-                            <td scope="row">NOTIFICATION OF ACCEPTANCE</td>
-                            <td>February 14, 2020</td>
+                            <td style="color:red" scope="row">NOTIFICATION OF ACCEPTANCE</td>
+                            <td><S>February 14, 2020</S><br>
+                            <span style="color:red" >Febuary , 24th 2020</span>
+                        </td>
                         </tr>
                         <tr>
-                            <td scope="row">EARLY BIRD REGISTRATION</td>
-                            <td>February 15, 2020</td>
+                            <td style="color:red" scope="row">EARLY BIRD REGISTRATION DEADLINE</td>
+                            <td><S>February 15, 2020</S><br>
+                            <span style="color:red">March,1st  2020</span>
+                            </td>
                         </tr>
                         <tr>
                             <td scope="row">CAMERA-READY SUBMISSION DEADLINE</td>
