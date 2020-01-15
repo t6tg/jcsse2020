@@ -68,7 +68,7 @@
     </div>
     <div class="container" style="margin-bottom:100px;margin-top:20px;">
         <h3>Registration Policy</h3>
-        <h3><b>Registration Information: </b>(Registration period starts from January 15, 2020)</h3>
+        <h3><b>Registration Information: </b>(Registration period starts from March 1, 2020)</h3>
         <ol>
             <li>Each accepted paper needs at least one <b style="color:red"> *Regular Early bird Registration.
                 </b>Otherwise, the paper cannot be included in JCSSE-2020 conference proceedings. Please register
@@ -88,7 +88,7 @@
             <li>Response to the Comments of Reviewers, Screen Capture of the Response from IEEE PDF eXpressTM site
                 (http://www.pdf-express.org), Copyright-Transfer, Author-Biography, Payment-Slip of your paper,
                 valid
-                IEEE/ECTI membership status (if any) for Early bird Registration, are required by <b> January 15,
+                IEEE/ECTI membership status (if any) for Early bird Registration, are required by <b> March 1,
                     2020. </b>
             </li>
         </ol>
@@ -98,7 +98,7 @@
                 <tr>
                     <th></th>
                     <th>Early bird</th>
-                    <th>Late / On-Site</th>
+                    <th>Regular</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@
         </table>
         <br>
         <li>*Early bird (For full paper) Registration is required by March 1st, 2020.</li>
-        <li>**Late / On-Site Registration is March 1st - March 31, 2020</li>
+        <li>**Regular Registration is March 2 - March 31, 2020</li>
         <br>
         <h3><b style="color:#3c94db">Registration fee for Participant</b> <a href="../regis/participant/index.php" class="btn btn-primary" role="button">PARTICIPANT REGISTRATION</a></h3>
         <table class="table table-striped table-inverse">
@@ -124,7 +124,7 @@
                 <tr>
                     <th></th>
                     <th>*Early bird </th>
-                    <th>**Late / On-Site</th>
+                    <th>**Regular</th>
                 </tr>
             </thead>
             <tbody>
@@ -147,7 +147,7 @@
         </table>
         <br>
         <li>*Early bird (For participant) Registration is required by January 15, 2020.</li>
-        <li>**Late / On-Site Registration is February 26 - March 31, 2020.</li>
+        <li>**Regular Registration is February 26 - March 31, 2020.</li>
         <br>
         <h3>Method of Payment:</h3>
         <ol>
