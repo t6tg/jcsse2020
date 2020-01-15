@@ -88,10 +88,8 @@
             <center><button type="button" onclick="authorlogin()" style="background-color:#3c94db;color:#fff" class="btn btn">AUTHOR LOGIN</button> <button type="button" class="btn btn" onclick="authorregis()" style="background-color:#3c94db;color:#fff">AUTHOR REGISTRATION</button></center>
             <center><button type="button" onclick="pregis()" style="margin-top:2px;background-color:green;color:#fff" class="btn btn">PARTICIPANT REGISTRATION</button> <button type="button" class="btn btn" onclick="pregisST()" style="background-color:green;color:#fff">PARTICIPANT REGISTRATION STATUS</button>
             </center>
-            <center><button type="button" onclick="wsauthorlogin()" style="margin-top:2px;background-color:orange;color:#fff" class="btn btn">AUTHOR LOGIN ( WORKSHOP )</button> <button type="button" class="btn btn" onclick="wsauthorregis()" style="background-color:orange;color:#fff">AUTHOR REGISTRATION ( WORKSHOP )</button>
-            </center>
-            <center><button type="button" onclick="wspregis()" style="margin-top:2px;background-color:red;color:#fff" class="btn btn">PARTICIPANT REGISTRATION ( WORKSHOP )</button>
-                <button type="button" class="btn btn" onclick="pregisST()" style="background-color:red;color:#fff">PARTICIPANT REGISTRATION STATUS ( WORKSHOP )</button>
+            <center><button type="button" onclick="wspregis()" style="margin-top:2px;background-color:red;color:#fff" class="btn btn"> WORKSHOP </button>
+                <button type="button" class="btn btn" onclick="pregisST()" style="background-color:red;color:#fff"> WORKSHOP REGISTRATION STATUS</button>
             </center>
         </div>
         <div class="row">
@@ -126,13 +124,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row" style="color:red">Extended DEADLINE</td>
-                            <td><S>January 14, 2020</S><br><span style="color:red">Febuary,3 2020</span></td>
+                            <td scope="row" style="color:red">SUBMISSION DEADLINE</td>
+                            <td><S>January 14, 2020</S><br><span style="color:red">February,3 2020</span></td>
                         </tr>
                         <tr>
                             <td style="color:red" scope="row">NOTIFICATION OF ACCEPTANCE</td>
                             <td><S>February 14, 2020</S><br>
-                            <span style="color:red" >Febuary , 24th 2020</span>
+                            <span style="color:red" >February , 24th 2020</span>
                         </td>
                         </tr>
                         <tr>

@@ -17,11 +17,13 @@ $file = html_entity_decode(trim($_POST['ieeefile']));
 $payment = html_entity_decode(trim($_POST['payment']));
 $foreigner = 0;
 $unique = md5(uniqid($fname + $lname + rand(), true));
-$date = 1582650000000;
-$price_early = [4500, 5500, 4500, 3000];
-$price_general = [5500, 6500, 5500, 3500];
+$date = 1588698000000;
+$price_early = [1200, 1200, 1200, 1200];
+$price_general = [1200, 1200, 1200, 1200];
 $time_stamp = Date('d-m-Y h:i:s');
 $ieee_ch = 1;
+$count_w1= mysqli_num_rows($conn->query("SELECT * FROM workshop_general_ticket WHERE participant_st='$ieee'"));
+if($count_w1 < 35){
 if ($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $country != "" && $email != "" && $phone != "" && $banquet != "" && $special != "" && $ieee != "" && $payment != "") {
     if ($ieee == '1') {
         move_uploaded_file($_FILES["ieeefile"]["tmp_name"], "fad5725438f4a054f71d6b9aa9a13fa3/" . $unique . ".jpg");
@@ -92,6 +94,10 @@ if ($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $count
     }
     ////
 } else {
+    header('Refresh:0,url=index.php');
+}
+}else{
+    echo "<script>alert('Sold Out')</script>";
     header('Refresh:0,url=index.php');
 }
 mysqli_close($conn);

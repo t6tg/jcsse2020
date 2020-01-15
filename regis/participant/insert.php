@@ -19,15 +19,15 @@ $payment = html_entity_decode(trim($_POST['payment']));
 $foreigner = 0;
 $shop = 3000;
 $unique = md5(uniqid($fname + $lname + rand(), true));
-$date = 1582650000000;
-$price_early = [4500, 5500, 4500, 3000];
-$price_general = [5500, 6500, 5500, 3500];
+$date = 1582995600000;
+$price_early = [4500, 6000, 4500, 3000];
+$price_general = [6000, 7500, 5500, 4500];
 $time_stamp = Date('d-m-Y h:i:s');
 $ieee_ch = 1;
-if ($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $country != "" && $email != "" && $phone != "" && $workshop != "" && $banquet != "" && $special != "" && $ieee != "" && $payment != "") {
-    if($workshop == "1"){
-        $total += $shop;
-    }
+if ($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $country != "" && $email != "" && $phone != "" && $banquet != "" && $special != "" && $ieee != "" && $payment != "") {
+    // if($workshop == "1" ||){
+    //     $total += $shop;
+    // }
     if ($ieee == '1') {
         move_uploaded_file($_FILES["ieeefile"]["tmp_name"], "fad5725438f4a054f71d6b9aa9a13fa3/" . $unique . ".jpg");
         if (round(microtime(true) * 1000) < $date) {
@@ -81,14 +81,14 @@ if ($fname != "" && $lname != "" && $badge != "" && $affiliation != "" && $count
     }
     //pay
     if ($payment == '1') {
-        $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,workshop,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','$workshop','$ieee_ch')";
+        $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,workshop,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','0','$ieee_ch')";
         if (mysqli_query($conn, $sql)) {
             header("Refresh:0,url=payment.php?id=$unique");
         } else {
             header("Refresh:0,url=index.php");
         }
     } else {
-        $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,workshop,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','$workshop','$ieee_ch')";
+        $sql = "INSERT INTO general_ticket (unique_code,fname,lname,badge,affiliation,country,email,phone,banquet,food,note,participant_st,pay_method,pay_st,price,workshop,ieee_ch) VALUES ('$unique','$fname','$lname','$badge','$affiliation','$country','$email','$phone','$banquet','$special','$note','$ieee','$payment','','$total','0','$ieee_ch')";
         if (mysqli_query($conn, $sql)) {
             header("Refresh:0,url=payment.php?id=$unique");
         } else {

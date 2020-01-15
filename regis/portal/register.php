@@ -6,7 +6,7 @@
   $sql_country2 = "select * from country";
   $result_country2 = $conn->query($sql_country);
   $date = 1585674000000;
-  if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1579021200000)){
+  if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1582995600000)){
     echo '<script>alert("timeout")</script>';
     header('Refresh:0,url=index.php');
   }else{
@@ -383,5 +383,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
-  <?php } ?>
+<?php } ?>
 </html>

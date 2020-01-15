@@ -3,7 +3,7 @@ require_once('../../Database/jcsse2020-database.php');
 $sql_country = "select country from country";
 $result_country = $conn->query($sql_country);
 $date = 1588957200000;
-if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1579021200000)){
+if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1578934800000)){
     echo '<script>alert("timeout")</script>';
     header('Refresh:0,url=../../');
   }else{
@@ -87,14 +87,6 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
                         <textarea class="form-control" name="note" id="" rows="3"></textarea>
                     </div>
                     <!-- workshop -->
-                    <label><b>Workshop <span style="color:red">*</span></b></label>
-                    <div class="form-group">
-                        <select class="form-control" name="workshop" id="workshop">
-                            <option value="-1" disabled selected>-- Please select --</option>
-                            <option value="1">Join</option>
-                            <option value="0">No Join</option>
-                        </select>
-                    </div>
                     <!-- Participant Status -->
                     <label><b>Participant Status <span style="color:red">*</span></b></label>
                     <div class="form-group">
@@ -102,7 +94,7 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
                             <option value="-1" disabled selected>-- Please select --</option>
                             <option value="1">IEEE Member</option>
                             <option value="0">Non-IEEE Member/Accompanying person/Student</option>
-                            <option value="2">JCSSE Committee/ JCSSE Reviewer</option>
+                            <!-- <option value="2">JCSSE Committee/ JCSSE Reviewer</option> -->
                             <option value="3">Student Observer</option>
                         </select>
 
@@ -146,7 +138,7 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
             var ieees = document.forms["myForm"]["ieee"].value;
             var ieeefile = document.forms["myForm"]["ieee-file"].value;
             var payment = document.forms["myForm"]["payment"].value;
-            var workshop = document.forms["myForm"]["workshop"].value;
+            // var workshop = document.forms["myForm"]["workshop"].value;
             var phone = document.forms["myForm"]["phone"].value;
             if (fname == "") {
                 alert("Please Input First Name");
@@ -190,10 +182,10 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
                     return false;
                 }
             }
-            if (workshop == '-1') {
-                    alert("Please Choose Workshop");
-                    return false;
-            }
+            // if (workshop == '-1') {
+            //         alert("Please Choose Workshop");
+            //         return false;
+            // }
             if (ieees == '-1') {
                 alert("Please choose Participant Status");
                 return false;
@@ -237,7 +229,7 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
 
         function calculate() {
             var ieee = document.getElementById("ieee").value;
-            var time = 1582650000000;
+            var time = 1582995600000;
             var total = 0;
             if (ieee == 1) {
                     console.log(Date.now())
@@ -245,15 +237,15 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
                     total = 4500;
                     document.getElementById("ieee-div").style.display = 'inline-block';
                 } else {
-                    total = 5500;
+                    total = 6000;
                     document.getElementById("ieee-div").style.display = 'inline-block';
                 }
             } else if (ieee == 0) {
                 if (Date.now() < time) {
-                    total = 5500;
+                    total = 6000;
                     document.getElementById("ieee-div").style.display = 'none';
                 } else {
-                    total = 6500;
+                    total = 7500;
                     document.getElementById("ieee-div").style.display = 'none';
                 }
             } else if (ieee == 2) {

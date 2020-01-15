@@ -3,8 +3,8 @@
   $sql_country = "select country from country";
   $result_country = $conn->query($sql_country);
   $result_country = $conn->query($sql_country);
-$date = 1588957200000;
-if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1579021200000)){
+$date = 1588698000000; //ถึง 6 may 2020
+if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 1578934800000)){
     echo '<script>alert("timeout")</script>';
     header('Refresh:0,url=../../index.php');
   }else{
@@ -26,7 +26,7 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
 <body>
     <div class="container">
         <div class="card-regis"><br>
-            <h3 align="center" style="margin-top:30px">PARTICIPANT WORKSHOP REGISTRATION</h3><br>
+            <h3 align="center" style="margin-top:30px">WORKSHOP REGISTRATION</h3><br>
             <center>
                 <form class="form-regis" name="myForm" id="signup-form" enctype="multipart/form-data" action="insert.php" method="post">
                     <div lass="form-group">
@@ -99,23 +99,24 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
                     <div class="form-group">
                         <select class="form-control" onchange="calculate()" name="ieee" id="ieee">
                             <option value="-1" disabled selected>-- Please select --</option>
-                            <option value="1">IEEE Member</option>
-                            <option value="0">Non-IEEE Member/Accompanying person/Student</option>
-                            <option value="2">JCSSE Committee/ JCSSE Reviewer</option>
-                            <option value="3">Student Observer</option>
+                            <option value="2">Workshop on Hands-on Azure Cloud</option>
+                            <option value="0">RSA</option>
+                            <!-- <option value="2">JCSSE Committee/ JCSSE Reviewer</option>
+                            <option value="3">Student Observer</option> -->
                         </select>
                         <div class="form-group" id="ieee-div"
                             style="border:1px solid;border-radius:10px;padding:20px;display:none;margin-top:10px">
                             <label for=""><b>IEEE Member File <span style="color:red">*</span></b></label>
                             <input type="file" class="form-control-file" name="ieeefile" id="ieee-file" placeholder=""
                                 aria-describedby="fileHelpId">
-                            <br>
+                            <b>
                         </div>
                     </div>
                     <div class="price">
                         <p><label id="price">0.00</label>THB</p>
                         <input type="hidden" name="totalfee" id="totalfee" value="0">
-                    </div> <b style="color:red">* foreigner +2000 THB</b><br>
+                     </div> 
+                    <!--- <b style="color:red">* foreigner +2000 THB</b><br> -->
                     <!-- Payment Method * --><br>
                     <label><b>Payment Method <span style="color:red">*</span></b></label>
                     <div class="form-group">
@@ -236,34 +237,34 @@ if( (round(microtime(true) * 1000) > $date) || (round(microtime(true) * 1000) < 
         var total = 0;
         if (ieee == 1) {
             if (Date.now() < time) {
-                total = 4500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'inline-block';
             } else {
-                total = 5500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'inline-block';
             }
         } else if (ieee == 0) {
             if (Date.now() < time) {
-                total = 5500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'none';
             } else {
-                total = 6500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'none';
             }
         } else if (ieee == 2) {
             if (Date.now() < time) {
-                total = 4500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'none';
             } else {
-                total = 5500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'none';
             }
         } else if (ieee == 3) {
             if (Date.now() < time) {
-                total = 3000;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'none';
             } else {
-                total = 3500;
+                total = 1200;
                 document.getElementById("ieee-div").style.display = 'inline-block';
             }
         }

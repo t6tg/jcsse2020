@@ -120,13 +120,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row" style="color:red">Extended DEADLINE</td>
-                            <td><S>January 14, 2020</S><br><span style="color:red">Febuary,3 2020</span></td>
+                            <td scope="row" style="color:red">SUBMISSION DEADLINE</td>
+                            <td><S>January 14, 2020</S><br><span style="color:red">February,3 2020</span></td>
                         </tr>
                         <tr>
                             <td style="color:red" scope="row">NOTIFICATION OF ACCEPTANCE</td>
                             <td><S>February 14, 2020</S><br>
-                            <span style="color:red" >Febuary , 24th 2020</span>
+                            <span style="color:red" >February , 24th 2020</span>
                         </td>
                         </tr>
                         <tr>

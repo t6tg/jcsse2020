@@ -28,14 +28,14 @@
     <div class="container">
         <center>
             <div class="card-regis" style="margin-bottom: 40px;"><br>
-                <h3 align="center" style="margin-top:30px">PARTICIPANT WORKSHOP REGISTRATION ( PAYMENT )</h3><br>
+                <h3 align="center" style="margin-top:30px">WORKSHOP REGISTRATION ( PAYMENT )</h3><br>
                 <div class="callout" style="width: 70%;border-left: 4px orange solid">
                     <p style="text-align:left"><b>If you wish to pay later, please copy the link so you can return to
                             proceed with the payment.</b></p>
                 </div><br>
                 <div>
                     <input type="text" style="padding:10px;width:60%;background-color: #eee;border:none;color:#333;"
-                        value="<?php echo "http://jcsse2020.cs.kmutnb.ac.th/jcsse2020/workshop/participant/payment.php?id=",$id ;?>"
+                        value="<?php echo "https://jcsse2020.cs.kmutnb.ac.th/workshop/participant/payment.php?id=",$id ;?>"
                         id="myInput" readonly />
                     <button style="padding:10px;width:10%;color:#fff;background-color:#777" onclick="myFunction()"><i
                             class="fa fa-clipboard"></i></button></div><br>
@@ -50,21 +50,21 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td><?php if(trim($row['participant_st']) == '1'){echo "IEEE Member";}
-                            else if($row['participant_st'] == '0'){ echo "Non-IEEE Member/Accompanying person/Student";}
-                            else if($row['participant_st'] == '2'){ echo "JCSSE Committee/ JCSSE Reviewer";}
-                            else if($row['participant_st'] == '3'){ echo "Student Observer";}?>
+                            <td><?php if(trim($row['participant_st']) == '1'){echo "WORKSHOP";}
+                            else if($row['participant_st'] == '0'){ echo "WORKSHOP";}
+                            else if($row['participant_st'] == '2'){ echo "WORKSHOP";}
+                            else if($row['participant_st'] == '3'){ echo "WORKSHOP";}?>
                             </td>
-                            <td><?php if($row['participant_st'] == '1'){echo "4500";}
-                            else if($row['participant_st'] == '0'){ echo "5500";}
-                            else if($row['participant_st'] == '2'){ echo "4500";}
-                            else if($row['participant_st'] == '3'){ echo "3000";}?></td>
+                            <td><?php if($row['participant_st'] == '1'){echo "1200";}
+                            else if($row['participant_st'] == '0'){ echo "1200";}
+                            else if($row['participant_st'] == '2'){ echo "1200";}
+                            else if($row['participant_st'] == '3'){ echo "1200";}?></td>
                         </tr>
                         <?php if($row['country'] != "Thailand"){ ?>
                             <tr>
-                            <td scope="row">2</td>
-                            <td>Foreigner</td>
-                            <td>2000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             </tr>
                         <?php }else{ ?>
                             <tr>
@@ -76,7 +76,7 @@
                         <tr>
                             <td scope="row"></td>
                             <td><b>Total : </b></td>
-                            <td><b><?php echo $row['price'];?></b></td>
+                            <td><b><?php echo 1200;?></b></td>
                         </tr>
                     </tbody>
                 </table><br>
@@ -94,9 +94,9 @@
                                 data-frame-description="king mongkut's university of technology north bangkok"
                                 data-submit-label="Checkout" data-currency="THB" data-button-label="Click To Pay"
                                 data-default-payment-method="credit_card">
-                            < input type = "hidden"
+                            <input type = "hidden"
                             name = "id"
-                            value = "<?php echo $row['unique_code']; ?>" >
+                            value = "<?php echo $row['unique_code']; ?>" ></input>
                             </script>
                         </form>
                     </div>
@@ -239,14 +239,14 @@
     $sql = "select * from workshop_general_ticket where unique_code='$id'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    require_once './omisephp/lib/Omise.php';
+    // require_once './omisephp/lib/Omise.php';
     define('OMISE_PUBLIC_KEY', 'pkey_test_5hf4ps01m8g5qxyrzw7');
     define('OMISE_SECRET_KEY', 'skey_test_5ezwuh1uatm5fpq1zr2');
-    $charge = OmiseCharge::create(array(
-        'amount' => $row['price'] * 100,
-        'currency' => 'thb',
-        'card' => $_POST['omiseToken']
-    ));
+    // $charge = OmiseCharge::create(array(
+    //     'amount' => $row['price'] * 100,
+    //     'currency' => 'thb',
+    //     'card' => $_POST['omiseToken']
+    // ));
     if($charge['status'] == 'successful'){
         $sql_paid = "UPDATE workshop_general_ticket SET pay_st='1' WHERE unique_code='$id'";
         mysqli_query($conn,$sql_paid);
